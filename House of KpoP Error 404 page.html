@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found - House of Kpop</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+        body {
+            background-image: url('https://i.pinimg.com/736x/55/70/d2/5570d2cce82db1d5c093966da6068e4c.jpg'); /* Updated background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Noto Sans KR', sans-serif; /* Noto Sans KR font */
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8); /* White translucent background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: relative; /* To position the button absolutely */
+        }
+
+        .locked-house {
+            margin: 0 auto 20px;
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .house {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .roof {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 60px solid #001f4d; /* Dark Blue Roof */
+            border-radius: 10px 10px 0 0;
+        }
+
+        .walls {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            height: 140px;
+            background-color: #001f4d; /* Dark Blue Walls */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 10px 10px;
+        }
+
+        .door {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 80px;
+            background-color: #fff; /* White Door */
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lock {
+            width: 20px;
+            height: 20px;
+            background-color: #001f4d; /* Dark Blue Lock */
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .lock::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background-color: #fff; /* White Center of Lock */
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #001f4d; /* Dark Blue Text */
+            font-weight: bold;
+        }
+
+        .error-404 {
+            font-size: 2em; /* Larger font size for emphasis */
+            color: #d9534f; /* Red color for error */
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .interactive-segment {
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #001f4d; /* Dark Blue Text */
+            font-weight: bold;
+        }
+
+        .home-button {
+            display: none; /* Initially hidden */
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #001f4d; /* Dark Blue Button */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2; /* Ensure it's above the pop-up */
+        }
+
+        .home-button:hover {
+            background-color: #003366; /* Darker Blue on Hover */
+        }
+
+        /* Pop-up styles */
+        .popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%); /* Center horizontally and vertically */
+            width: 300px; /* Adjust width as needed */
+            height: 300px; /* Set height equal to width for 1:1 ratio */
+            background-color: white;
+            border: 3px solid #001f4d;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            overflow: hidden; /* Ensures content doesn't overflow */
+        }
+
+        .popup img {
+            width: 100%;
+            height: 60%; /* Adjust height of image to fit within the pop-up */
+            object-fit: cover; /* Ensures the image covers the area properly */
+            border-radius: 10px 10px 0 0;
+        }
+
+        .popup .message {
+            position: absolute;
+            bottom: 10%; /* Position at the lower third of the pop-up */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            width: 80%; /* Adjust width as needed */
+            color: #001f4d; /* Dark Blue Text */
+            font-size: 1.2em; /* Adjust font size as needed */
+            font-weight: bold;
+            font-family: 'Noto Sans KR', sans-serif; /* Same font as site */
+            background: rgba(255, 255, 255, 0.7); /* Slight background for readability */
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="locked-house">
+            <div class="house">
+                <div class="roof"></div>
+                <div class="walls">
+                    <div class="door">
+                        <div class="lock"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1>Oops! Accendio won't unlock this door</h1>
+        <div class="error-404">ERROR 404 ITEM NOT FOUND</div> <!-- Updated ERROR 404 text -->
+        
+        <div class="interactive-segment">
+            Complete the lyrics :<br>
+            "So just say O, babe____"<br>
+            <br>
+            <label>
+                <input type="radio" name="lyrics" value="A"> 네 안에 있어 나만의 조각들 (my pieces are in you)<br>
+            </label>
+            <label>
+                <input type="radio" name="lyrics" value="B"> 어느새 내 맘에 들어와 (I like it whenever)<br>
+            </label>
+            <label>
+                <input type="radio" name="lyrics" value="C" onclick="showPopup()"> 날 움직이는 단 하나 열쇠 (a single key that moves me) <br>
+            </label>
+            <label>
+                <input type="radio" name="lyrics" value="D"> 마법의 주문에 걸려버렸어 (I got caught in a magic spell)<br>
+            </label>
+        </div>
+        
+        <a id="homeButton" href="https://www.houseofkpopco.com" class="home-button">Go to Homepage</a>
+    </div>
+
+    <!-- Pop-up window -->
+    <div id="popup" class="popup">
+        <img src="https://preview.redd.it/240609-enhypen-instagram-story-v0-p4s3my2q4d5d1.jpeg?width=1080&crop=smart&auto=webp&s=6920b9c952714e634593a2f863e0035b8df24744" alt="Congrats Image">
+        <div class="message">Congrats, you found the key to the homepage!</div>
+    </div>
+
+    <script>
+        function showPopup() {
+            var popup = document.getElementById("popup");
+            var homeButton = document.getElementById("homeButton");
+            popup.style.display = "block";
+            homeButton.style.display = "none"; // Hide the home button during popup
+
+            setTimeout(function() {
+                popup.style.display = "none";
+                homeButton.style.display = "inline-block"; // Show the home button after popup disappears
+            }, 5000); // Hide the popup after 5000 milliseconds (5 seconds)
+        }
+    </script>
+</body>
+</html>
